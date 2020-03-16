@@ -1,0 +1,43 @@
+{
+	"npmScope": "nx-monorepo-demo",
+	"implicitDependencies": {
+		"angular.json": "*",
+		"package.json": "*",
+		"tsconfig.json": "*",
+		"tslint.json": "*",
+		"nx.json": "*"
+	},
+	"projects": {
+		"demo-e2e": {
+			"tags": [],
+			"implicitDependencies": ["demo"]
+		},
+		"demo": {
+			"tags": []
+		},
+		"demo2": {
+			"tags": []
+		},
+		"api": {
+			"tags": ["api"]
+		},
+		"shared-ui": {
+			"tags": ["shared-ui"]
+		},
+		"employee-list": {
+			"tags": ["employee-list"]
+		},
+		"employee": {
+			"tags": ["employee"]
+		},
+		"home": {
+			"tags": []
+		},
+		"shared-styles": {
+			"tags": []
+		},
+		"demo2-styles": {
+			"tags": []
+		}
+	}
+}

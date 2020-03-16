@@ -1,0 +1,96 @@
+<nz-table
+	#employeeTable
+	nzFooter="Footer"
+	nzPaginationPosition="bottom"
+	nzFrontPagination="true"
+	nzBordered="false"
+	nzShowPagination="true"
+	[nzData]="employeeList$ | async"
+>
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Salary</th>
+			<th>Age</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let data of employeeTable.data">
+			<td>{{ data.id }}</td>
+
+			<td>
+				<ng-container *ngIf="!editCache[data.id].edit; else nameInputTpl">
+					{{ data.employee_name }}
+				</ng-container>
+				<ng-template #nameInputTpl>
+					<input
+						type="text"
+						nz-input
+						[(ngModel)]="editCache[data.id].data.employee_name"
+					/>
+				</ng-template>
+			</td>
+			<td>
+				<ng-container *ngIf="!editCache[data.id].edit; else salaryInputTpl">
+					{{ data.employee_salary }}
+				</ng-container>
+				<ng-template #salaryInputTpl>
+					<input
+						type="text"
+						nz-input
+						[(ngModel)]="editCache[data.id].data.employee_salary"
+					/>
+				</ng-template>
+			</td>
+			<td>
+				<ng-container *ngIf="!editCache[data.id].edit; else ageInputTpl">
+					{{ data.employee_age }}
+				</ng-container>
+				<ng-template #ageInputTpl>
+					<input
+						type="text"
+						nz-input
+						[(ngModel)]="editCache[data.id].data.employee_age"
+					/>
+				</ng-template>
+			</td>
+			<td>
+				<div class="editable-row-operations">
+					<ng-container *ngIf="!editCache[data.id].edit; else saveTpl">
+						<nx-monorepo-demo-button
+							type="primary"
+							size="small"
+							(clicked)="startEdit(data.id)"
+						>
+							Edit
+						</nx-monorepo-demo-button>
+						<!-- <nx-monorepo-demo-button type="danger" size="small" text="Delete" nz-popconfirm nzTitle="Sure to delete?"
+              (nzOnConfirm)="deleteItem(data.id)">
+            </nx-monorepo-demo-button> -->
+					</ng-container>
+					<ng-template #saveTpl>
+						<nx-monorepo-demo-button
+							class="mr-3"
+							type="primary"
+							size="small"
+							(clicked)="saveEdit(data.id)"
+						>
+							Save
+						</nx-monorepo-demo-button>
+						<nx-monorepo-demo-button
+							nz-popconfirm
+							nzTitle="Sure to cancel?"
+							(nzOnConfirm)="cancelEdit(data.id)"
+							type="danger"
+							size="small"
+						>
+							Cancel
+						</nx-monorepo-demo-button>
+					</ng-template>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</nz-table>

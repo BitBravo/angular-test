@@ -1,0 +1,28 @@
+// Import mixins
+@import 'helpers/mixins.scss';
+
+body {
+	////////////////////////////////////////////////////////////////////////////////////////////
+	// DARK THEME STYLES
+	&.theme__dark {
+		.ant-btn {
+			&-primary {
+				&:hover,
+				&:active,
+				&:focus {
+					background: lighten($blue-light, 10%);
+					border-color: lighten($blue-light, 10%);
+				}
+			}
+
+			&-danger {
+				&:hover,
+				&:active,
+				&:focus {
+					background: lighten($danger, 10%);
+					border-color: lighten($danger, 10%);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,28 @@
+<nx-monorepo-demo-card bordered="true" title="List" [extra]="extraTemplate">
+	<div class="mb-5">
+		<nx-monorepo-demo-alert
+			type="warning"
+			message="Note"
+			closeable
+			description="Edit functionality is UI purpose only. It is not updating data on server."
+			showIcon
+		>
+		</nx-monorepo-demo-alert>
+	</div>
+
+	<nx-monorepo-demo-employee-list></nx-monorepo-demo-employee-list>
+</nx-monorepo-demo-card>
+<ng-template #extraTemplate>
+	<nx-monorepo-demo-button type="primary" (clicked)="buttonClick()">
+		Action
+	</nx-monorepo-demo-button>
+	<nx-monorepo-demo-button
+		class="ml-2"
+		type="primary"
+		(clicked)="buttonClick()"
+		shape="round"
+		loading="true"
+	>
+		Action
+	</nx-monorepo-demo-button>
+</ng-template>

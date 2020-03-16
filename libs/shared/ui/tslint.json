@@ -1,0 +1,12 @@
+{
+	"extends": "../../../tslint.json",
+	"rules": {
+		"directive-selector": [
+			true,
+			"attribute",
+			"angularMonorepoBlueprint",
+			"camelCase"
+		],
+		"component-selector": [true, "element", "nx-monorepo-demo", "kebab-case"]
+	}
+}

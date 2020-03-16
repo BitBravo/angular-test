@@ -1,0 +1,7 @@
+{
+	"extends": "../../tslint.json",
+	"rules": {
+		"directive-selector": [true, "attribute", "nxMonorepoDemo", "camelCase"],
+		"component-selector": [true, "element", "nx-monorepo-demo", "kebab-case"]
+	}
+}

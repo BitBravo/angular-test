@@ -1,0 +1,36 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"rootDir": ".",
+		"sourceMap": true,
+		"declaration": false,
+		"moduleResolution": "node",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"importHelpers": true,
+		"target": "es2015",
+		"module": "esnext",
+		"typeRoots": ["node_modules/@types"],
+		"lib": ["es2017", "dom"],
+		"skipLibCheck": true,
+		"skipDefaultLibCheck": true,
+		"baseUrl": ".",
+		"paths": {
+			"@nx-monorepo-demo/*": ["libs/*"],
+			"@default/*": ["apps/demo/src/app/*"],
+			"@nx-monorepo-demo/api": ["libs/api/src/index.ts"],
+			"@nx-monorepo-demo/shared": ["libs/shared/src/index.ts"],
+			"@nx-monorepo-demo/shared/ui": ["libs/shared/ui/src/index.ts"],
+			"@nx-monorepo-demo/employee-list": ["libs/employee-list/src/index.ts"],
+			"@nx-monorepo-demo/employee": ["libs/employee/src/index.ts"],
+			"@nx-monorepo-demo/home": ["libs/home/src/index.ts"],
+			"@nx-monorepo-demo/shared/ui-styles": [
+				"libs/shared/ui/styles/src/index.ts"
+			],
+			"@nx-monorepo-demo/styles": ["libs/styles/src/index.ts"],
+			"@nx-monorepo-demo/data": ["libs/data/src/index.ts"],
+			"@nx-monorepo-demo/demo2/styles": ["libs/demo2/styles/src/index.ts"]
+		}
+	},
+	"exclude": ["node_modules", "tmp"]
+}

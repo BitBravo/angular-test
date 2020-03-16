@@ -1,0 +1,77 @@
+<div class="header__container">
+	<div class="container-fluid" style="max-width: 1440px;">
+		<div
+			class="switch"
+			(click)="switchDarkTheme()"
+			nzTooltipTitle="Switch Dark / Light Theme"
+			nzTooltipPlacement="left"
+			nz-tooltip
+		>
+			<i class="fe fe-moon on"></i>
+			<i class="fe fe-sun off"></i>
+		</div>
+		<div
+			class="color"
+			[ngClass]="{ reset: reset }"
+			nzTooltipTitle="Set Primary Color"
+			nzTooltipPlacement="left"
+			nz-tooltip
+		>
+			<button (click)="resetColor()">
+				<i class="fe fe-x-circle"></i>
+			</button>
+			<input
+				type="color"
+				id="colorPicker"
+				(change)="selectColor($event.target.value)"
+				[(ngModel)]="primaryColor"
+			/>
+			<i class="fe fe-package"></i>
+		</div>
+		<header class="pt-3 pb-3">
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="topbar">
+						<a class="logo mr-md-5 mr-auto" href="widgets-general.html">
+							<div class="logo__pic">
+								<i></i>
+								<i></i>
+							</div>
+							<div>
+								<span class="logo__main">{{ title }}</span>
+							</div>
+						</a>
+						<div class="mr-auto">
+							<ul class="list-unstyled tabs mb-0">
+								<ng-container *ngFor="let item of menuData">
+									<li>
+										<a
+											[ngClass]="{
+												tabs__active: item.url === activeSubmenu.url
+											}"
+											[routerLink]="item.url"
+										>
+											{{ item.title }}
+											<span class="badge bg-light ml-1">{{ item.count }}</span>
+										</a>
+									</li>
+								</ng-container>
+							</ul>
+						</div>
+
+						<p class="mb-0 mr-3 d-xl-block d-none">
+							Status
+							<span
+								class="ml-1 badge bg-primary text-white font-size-12 text-uppercase"
+								>ACTIVE</span
+							>
+						</p>
+						<div>
+							<nx-monorepo-demo-topbar-user-menu></nx-monorepo-demo-topbar-user-menu>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+	</div>
+</div>

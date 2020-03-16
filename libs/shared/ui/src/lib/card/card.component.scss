@@ -1,0 +1,29 @@
+// Import mixins
+@import 'helpers/mixins.scss';
+
+body {
+	////////////////////////////////////////////////////////////////////////////////////////////
+	// DARK THEME STYLES
+	&.theme__dark {
+		.ant-card {
+			color: $dark-gray-1;
+			background: $dark-gray-6;
+
+			&-meta {
+				&-description {
+					color: $dark-gray-1;
+				}
+			}
+
+			&-actions {
+				background: $dark-gray-6;
+
+				> li {
+					.anticon {
+						color: $dark-gray-1;
+					}
+				}
+			}
+		}
+	}
+}
